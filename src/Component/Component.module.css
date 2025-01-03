@@ -21,7 +21,8 @@
     position: absolute;
     left: 50%;
     top: 21%;
-    color: white;
+    
+    /* color: white; */
     font-weight: bold;
 }
 
@@ -36,4 +37,7 @@
 .load{
     text-align: center;
 }
+/* .outer:hover .inner{
+   width: 100%;
+} */
 

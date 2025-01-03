@@ -4,31 +4,46 @@ import { useReducer } from "react";
 
 const Component = () =>{
     const innerRef = useRef(null);
-    // const [counter , setCounter] = useState(0);
-    let num = 0;
-    // console.log(width);
+    const [counter , setCounter] = useState(0);
+    console.log(counter);
+useEffect(() =>{
+  innerRef.current.style.width = "100%"
+  let num = 0;
 
- useEffect(() =>{
-    // setWidth(width + 1);
-  setInterval(() =>{
-  num = num + 1;
-  if(num == 100){
-    clearInterval();
-  }
-
-  console.log(num);
-  
-    
-  },500)
- 
 },[])
 
+useEffect(() =>{
+
+ 
+ let interval = setInterval(() =>{
+  if(counter == 100){
+    clearInterval(interval);
+  }
+    // if(num == 100){
+    //   num = 100;
+    // }else{
+    //   num = num + 1;
+    // }
+    // innerRef.current.value = num;
+  
+  onCount();
+ },1000)
+
+ 
+})
+
+
+const onCount = () =>{
+  setCounter(counter + 1);
+
+  
+}
  return (
     <> 
     <div  className={styles.container}>
         <h1 className={styles.progress}>Progress Bar</h1>
         <div className={styles.outer}>
-            <p className={styles.percent}>0%</p>
+            <p className={styles.percent}>{counter}%</p>
             <div ref={innerRef} className={styles.inner}></div>
         </div>
         <p className={styles.load}>Loading...</p>
